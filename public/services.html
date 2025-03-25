@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>American Services AI - Our Services</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="American Services AI, Digital Agency, Web Development, YouTube Thumbnails, Logo Design, Poster Design" name="keywords">
+    <meta content="American Services AI - Explore our comprehensive range of digital services including web development, YouTube thumbnails, logo design, and poster design." name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+                <img src="img/logo.jpg" alt="American Services AI Logo" class="me-2" style="height: 40px; width: auto;">
+                <h1 class="m-0">American Services AI</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="services.html" class="nav-item nav-link active">Services</a>
+                    <div id="authLinks" class="d-none">
+                        <a href="javascript:void(0)" class="nav-item nav-link" id="dashboardLink">Dashboard</a>
+                        <a href="javascript:void(0)" class="nav-item nav-link" onclick="logout()">Logout</a>
+                    </div>
+                    <div id="guestLinks">
+                        <a href="admin/login.html" class="nav-item nav-link">Sign In</a>
+                        <a href="admin/register.html" class="nav-item nav-link">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Service Form Start -->
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="loginPrompt" class="text-center mb-5 d-none">
+                        <h3>Please Sign In to Submit an Inquiry</h3>
+                        <p class="text-muted">You need to be logged in to submit a service inquiry.</p>
+                        <a href="admin/login.html" class="btn btn-primary">Sign In</a>
+                    </div>
+                    
+                    <div id="inquiryForm" class="card shadow">
+                        <div class="card-body p-5">
+                            <h3 class="text-center mb-4">Submit Service Inquiry</h3>
+                            <form id="serviceForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="service" class="form-label">Service</label>
+                                    <select class="form-select" id="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="Website Development">Website Development</option>
+                                        <option value="YouTube Thumbnails">YouTube Thumbnails</option>
+                                        <option value="Logo Design">Logo Design</option>
+                                        <option value="Poster Design">Poster Design</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit Inquiry</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service Form End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer mt-5 pt-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="text-white mb-4">Contact Us</h4>
+                        <div class="d-flex flex-column">
+                            <a href="mailto:vijaysanjaytech@gmail.com" class="text-light mb-3">
+                                <i class="fa fa-envelope me-2"></i>vijaysanjaytech@gmail.com
+                            </a>
+                            <a href="https://wa.link/fucmg1" class="text-light mb-3">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                            <a href="https://t.me/your-telegram-username" class="text-light">
+                                <i class="fab fa-telegram me-2"></i>Telegram
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a class="btn btn-link text-light" href="index.html">Home</a>
+                        <a class="btn btn-link text-light" href="services.html">Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a href="#">American Services AI</a>, All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Form Handling -->
+    <script>
+        // Check authentication
+        const token = localStorage.getItem('token');
+        if (!token) {
+            document.getElementById('loginPrompt').classList.remove('d-none');
+            document.getElementById('inquiryForm').classList.add('d-none');
+        } else {
+            document.getElementById('loginPrompt').classList.add('d-none');
+            document.getElementById('inquiryForm').classList.remove('d-none');
+        }
+
+        function showLoginPrompt() {
+            const loginPrompt = document.createElement('div');
+            loginPrompt.className = 'modal fade';
+            loginPrompt.id = 'loginPromptModal';
+            loginPrompt.innerHTML = `
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Sign In Required</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please sign in to submit a service inquiry.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="admin/login.html" class="btn btn-primary">Sign In</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(loginPrompt);
+            new bootstrap.Modal(loginPrompt).show();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('serviceForm');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const token = localStorage.getItem('token');
+                    if (!token) {
+                        showLoginPrompt();
+                        return;
+                    }
+                    
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        service: document.getElementById('service').value,
+                        description: document.getElementById('description').value
+                    };
+
+                    try {
+                        const response = await fetch('/api/inquiries', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        if (response.ok) {
+                            alert('Service inquiry submitted successfully! We will get in touch with you soon through email.');
+                            form.reset();
+                        } else {
+                            throw new Error('Failed to submit inquiry');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('Error submitting inquiry');
+                    }
+                });
+            }
+        });
+
+        // Check authentication status
+        fetch('/api/auth/status', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.authenticated) {
+                document.getElementById('authLinks').classList.remove('d-none');
+                document.getElementById('guestLinks').classList.add('d-none');
+                document.getElementById('dashboardLink').href = data.user.role === 'admin' ? 'admin/dashboard.html' : 'user/dashboard.html';
+            } else {
+                document.getElementById('authLinks').classList.add('d-none');
+                document.getElementById('guestLinks').classList.remove('d-none');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html> 

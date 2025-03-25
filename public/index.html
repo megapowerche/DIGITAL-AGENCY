@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>American Services AI - Digital Agency</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="American Services AI, Digital Agency, Web Development, YouTube Thumbnails, Logo Design, Poster Design" name="keywords">
+    <meta content="American Services AI - Your trusted partner for web development, YouTube thumbnails, logo design, and poster design services." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .hero-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/homeback.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .service-item {
+            transition: transform 0.3s ease-in-out;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .price-tag {
+            background: #0d6efd;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .get-started-btn {
+            background: linear-gradient(45deg, #0d6efd, #0099ff);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 sticky-top shadow-sm">
+                <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+                    <img src="img/logo.jpg" alt="American Services AI Logo" class="me-2" style="height: 40px; width: auto;">
+                    <h1 class="m-0">American Services AI</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="services.html" class="nav-item nav-link">Services</a>
+                        <div id="authLinks" class="d-none">
+                            <a href="javascript:void(0)" class="nav-item nav-link" id="dashboardLink">Dashboard</a>
+                            <a href="javascript:void(0)" class="nav-item nav-link" onclick="logout()">Logout</a>
+                            </div>
+                        <div id="guestLinks">
+                            <a href="admin/login.html" class="nav-item nav-link">Sign In</a>
+                            <a href="admin/register.html" class="nav-item nav-link">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-xxl hero-header py-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h1 class="display-3 text-white mb-4 animated slideInDown">Creative solutions for a digital world</h1>
+                            <a href="services.html" class="btn btn-primary py-3 px-5">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Services Start -->
+        <div id="services" class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                    <h1 class="display-5 mb-4">Our Services</h1>
+                    <p class="text-muted">Transforming your digital presence with our comprehensive services</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item text-center p-4">
+                            <div class="price-tag">₹10000+</div>
+                            <h4 class="mb-3">Website Development</h4>
+                            <p class="mb-4">We create responsive, fast, and user-friendly websites tailored to your needs, whether for businesses, portfolios, or e-commerce.</p>
+                            <a href="services.html" class="get-started-btn">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item text-center p-4">
+                            <div class="price-tag">₹449+</div>
+                            <h4 class="mb-3">YouTube Thumbnails</h4>
+                            <p class="mb-4">Eye-catching and engaging thumbnails designed to maximize clicks and improve video performance.</p>
+                            <a href="services.html" class="get-started-btn">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item text-center p-4">
+                            <div class="price-tag">₹499+</div>
+                            <h4 class="mb-3">Logo Design</h4>
+                            <p class="mb-4">Unique, professional, and memorable logos that represent your brand identity and leave a lasting impression.</p>
+                            <a href="services.html" class="get-started-btn">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="service-item text-center p-4">
+                            <div class="price-tag">₹499+</div>
+                            <h4 class="mb-3">Poster Design</h4>
+                            <p class="mb-4">Visually striking posters crafted for promotions, events, or advertisements, ensuring a strong impact on your audience.</p>
+                            <a href="services.html" class="get-started-btn">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+        <!-- Description Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 800px;">
+                    <p class="text-muted">At American Services AI, we specialize in providing innovative and tailored digital solutions to elevate your online presence. Our team of skilled professionals is committed to delivering high-quality services designed to meet the unique needs of your brand. Whether you're looking to enhance your website, create eye-catching graphics, or establish a strong visual identity, we are here to bring your vision to life.</p>
+                    <h3 class="mt-4 mb-4">Our Services Include:</h3>
+                </div>
+
+                <!-- Website Development -->
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h4>Website Development</h4>
+                        <p class="text-muted">We create stunning, user-friendly websites that not only reflect your brand's identity but also deliver seamless experiences for your visitors. From responsive designs to custom functionalities, we ensure your website is optimized for both performance and aesthetics.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded" src="img/portfolio-1.jpg" alt="Website Development">
+                    </div>
+                                </div>
+
+                <!-- YouTube Thumbnails -->
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded" src="img/portfolio-2.jpg" alt="YouTube Thumbnails">
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>YouTube Thumbnails</h4>
+                        <p class="text-muted">Grab attention with visually striking YouTube thumbnails. Our design experts craft thumbnails that boost click-through rates and attract more viewers to your videos. We focus on vibrant, engaging designs that resonate with your target audience.</p>
+                    </div>
+                </div>
+
+                <!-- Logo Design -->
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h4>Logo Design</h4>
+                        <p class="text-muted">Your logo is the face of your brand, and we understand its importance. Our team works closely with you to design a unique, memorable logo that encapsulates your brand's values, creating an iconic symbol that resonates with your audience.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded" src="img/portfolio-3.jpg" alt="Logo Design">
+                    </div>
+                </div>
+
+                <!-- Poster Design -->
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded" src="img/portfolio-4.jpg" alt="Poster Design">
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Poster Design</h4>
+                        <p class="text-muted">Whether for events, promotions, or campaigns, we create visually compelling posters that captivate and communicate your message clearly. Our posters are designed to grab attention and leave a lasting impression, helping you stand out in any crowd.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Description End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer mt-5 pt-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="text-white mb-4">Contact Us</h4>
+                        <div class="d-flex flex-column">
+                            <a href="mailto:vijaysanjaytech@gmail.com" class="text-light mb-3">
+                                <i class="fa fa-envelope me-2"></i>vijaysanjaytech@gmail.com
+                            </a>
+                            <a href="https://wa.link/fucmg1" class="text-light mb-3">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                            <a href="https://t.me/your-telegram-username" class="text-light">
+                                <i class="fab fa-telegram me-2"></i>Telegram
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a class="btn btn-link text-light" href="index.html">Home</a>
+                        <a class="btn btn-link text-light" href="services.html">Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a href="#">Safesure</a>, All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // Initialize WOW.js for animations
+        new WOW().init();
+
+        // Check authentication status
+        fetch('/api/auth/status', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.authenticated) {
+                document.getElementById('authLinks').classList.remove('d-none');
+                document.getElementById('guestLinks').classList.add('d-none');
+                document.getElementById('dashboardLink').href = data.user.role === 'admin' ? 'admin/dashboard.html' : 'user/dashboard.html';
+            } else {
+                document.getElementById('authLinks').classList.add('d-none');
+                document.getElementById('guestLinks').classList.remove('d-none');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

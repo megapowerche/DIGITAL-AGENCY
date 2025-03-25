@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>American Services AI - Admin Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <style>
+        .dashboard-container {
+            padding: 2rem;
+        }
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .status-pending { background-color: #ffeeba; color: #856404; }
+        .status-progress { background-color: #b8daff; color: #004085; }
+        .status-completed { background-color: #c3e6cb; color: #155724; }
+        .status-cancelled { background-color: #f5c6cb; color: #721c24; }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="../index.html" class="navbar-brand p-0 d-flex align-items-center">
+                <img src="../img/logo.jpg" alt="American Services AI Logo" class="me-2" style="height: 40px; width: auto;">
+                <h1 class="m-0">American Services AI</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="../index.html" class="nav-item nav-link">Home</a>
+                    <a href="../services.html" class="nav-item nav-link">Services</a>
+                    <a href="dashboard.html" class="nav-item nav-link active">Dashboard</a>
+                    <a href="javascript:void(0)" class="nav-item nav-link" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Dashboard Content Start -->
+        <div class="container-fluid dashboard-container">
+            <div class="row">
+                <!-- Sidebar -->
+                <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <div class="text-center mb-4">
+                            <h4 class="text-white">American Services AI</h4>
+                            <p class="text-muted">Admin Dashboard</p>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-12">
+                    <h2 class="mb-4">Service Inquiries</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Service</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inquiriesTable">
+                                        <!-- Inquiries will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dashboard Content End -->
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Check if user is authenticated and is admin
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        // Verify admin role
+        fetch('/api/auth/status', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.authenticated || data.user.role !== 'admin') {
+                localStorage.removeItem('token');
+                window.location.href = 'login.html';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            window.location.href = 'login.html';
+        });
+
+        // Load inquiries
+        function loadInquiries() {
+            fetch('/api/admin/inquiries', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(inquiries => {
+                const tbody = document.getElementById('inquiriesTable');
+                tbody.innerHTML = inquiries.map(inquiry => `
+                    <tr>
+                        <td>${new Date(inquiry.createdAt).toLocaleDateString()}</td>
+                        <td>${inquiry.name}</td>
+                        <td>${inquiry.email}</td>
+                        <td>${inquiry.service}</td>
+                        <td>${inquiry.description}</td>
+                        <td>
+                            <span class="status-badge status-${inquiry.status.toLowerCase().replace(' ', '')}">${inquiry.status}</span>
+                        </td>
+                        <td>
+                            <select class="form-select form-select-sm" onchange="updateStatus('${inquiry._id}', this.value)">
+                                <option value="">Update Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="in progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                `).join('');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Update inquiry status
+        function updateStatus(inquiryId, status) {
+            if (!status) return;
+
+            fetch(`/api/inquiries/${inquiryId}/status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Status updated successfully') {
+                    loadInquiries();
+                } else {
+                    alert('Error updating status');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating status');
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+        }
+
+        // Load inquiries when page loads
+        loadInquiries();
+    </script>
+</body>
+
+</html> 
